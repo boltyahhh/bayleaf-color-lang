@@ -1,12 +1,14 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-scroll';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../context/translations';
+import ScrollIndicator from '../ScrollIndicator';
 
 const ContactSection: React.FC = () => {
   const formRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
+  const { language } = useLanguage();
   
   const [formData, setFormData] = useState({
     name: '',
@@ -247,27 +249,11 @@ const ContactSection: React.FC = () => {
         </div>
       </div>
       
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-10">
-        <div className="scroll-indicator">
-          <div className="scroll-indicator-progress" />
-        </div>
-        <Link
-          to="footer"
-          spy={true}
-          smooth={true}
-          offset={-80}
-          duration={800}
-          className="text-white/80 flex flex-col items-center cursor-pointer hover:text-white transition-colors"
-        >
-          <span className="text-sm uppercase tracking-wider mb-2">Follow Us</span>
-          <div className="flex space-x-4">
-            <div className="w-2 h-2 bg-white rounded-full"></div>
-            <div className="w-2 h-2 bg-white rounded-full"></div>
-            <div className="w-2 h-2 bg-white rounded-full"></div>
-          </div>
-        </Link>
-      </div>
+      <ScrollIndicator 
+        targetSection="footer"
+        text={translations.common.continue[language]}
+        theme="light"
+      />
     </section>
   );
 };
