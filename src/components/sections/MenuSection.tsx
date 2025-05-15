@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu } from 'lucide-react';
+import { Link } from 'react-scroll';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../context/translations';
 import ScrollIndicator from '../ScrollIndicator';
