@@ -1,10 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-scroll';
-import { Menu, ChevronDown } from 'lucide-react';
-import { MenuItem } from '../../types';
+import { Menu } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../context/translations';
+import ScrollIndicator from '../ScrollIndicator';
 
 const menuData: MenuItem[] = [
   {
@@ -196,24 +195,11 @@ const MenuSection: React.FC = () => {
           </Link>
         </motion.div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-10">
-          <div className="scroll-indicator">
-            <div className="scroll-indicator-progress" />
-          </div>
-          <Link
-            to="reviews"
-            spy={true}
-            smooth={true}
-            offset={-80}
-            duration={800}
-            className="text-gray-600 flex flex-col items-center cursor-pointer hover:text-spice-600 transition-colors"
-          >
-            <span className="text-sm uppercase tracking-wider mb-2">
-              {translations.common.continue[language]}
-            </span>
-            <ChevronDown size={20} />
-          </Link>
-        </div>
+        <ScrollIndicator 
+          targetSection="gallery"
+          text={translations.common.continue[language]}
+          theme="dark"
+        />
       </div>
 
       <AnimatePresence>
