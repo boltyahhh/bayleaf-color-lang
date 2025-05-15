@@ -126,15 +126,26 @@ canvas {
 }
 
 /* Scroll indicator */
+.scroll-indicator-wrapper {
+  @apply absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-10 flex flex-col items-center;
+}
+
 .scroll-indicator {
-  @apply w-1 h-24 mx-auto my-8 overflow-hidden rounded-full;
-  background: rgba(227, 155, 25, 0.2);
+  @apply w-[2px] h-16 mx-auto my-4 overflow-hidden rounded-full bg-current bg-opacity-20;
 }
 
 .scroll-indicator-progress {
-  @apply w-full bg-spice-500 rounded-full;
-  animation: scrollProgress 2s ease-in-out infinite;
+  @apply w-full rounded-full bg-current;
   height: 40%;
+  animation: scrollProgress 2s ease-in-out infinite;
+}
+
+.scroll-text {
+  @apply text-sm uppercase tracking-wider mb-2 font-medium transition-colors duration-300;
+}
+
+.scroll-icon {
+  @apply animate-bounce transition-colors duration-300;
 }
 
 @keyframes scrollProgress {
