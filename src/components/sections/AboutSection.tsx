@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-scroll';
-import { BookOpen, ChevronDown } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../context/translations';
+import ScrollIndicator from '../ScrollIndicator';
 
 const AboutSection: React.FC = () => {
   const textRef = useRef<HTMLDivElement>(null);
@@ -152,21 +152,11 @@ const AboutSection: React.FC = () => {
         </motion.div>
       </div>
       
-      <div className="absolute left-1/2 bottom-8 transform -translate-x-1/2 text-center">
-        <Link
-          to="menu"
-          spy={true}
-          smooth={true}
-          offset={-80}
-          duration={800}
-          className="text-gray-600 flex flex-col items-center cursor-pointer hover:text-spice-600 transition-colors"
-        >
-          <span className="text-sm uppercase tracking-wider mb-2">
-            {translations.about.cta[language]}
-          </span>
-          <ChevronDown size={20} className="animate-bounce" />
-        </Link>
-      </div>
+      <ScrollIndicator 
+        targetSection="menu"
+        text={translations.about.cta[language]}
+        theme="dark"
+      />
     </section>
   );
 };
