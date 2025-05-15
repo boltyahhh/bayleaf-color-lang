@@ -73,7 +73,7 @@ const GallerySection: React.FC = () => {
   const categories = ['all', 'food', 'restaurant', 'events'];
 
   return (
-    <section id="gallery" className="relative py-24 bg-cream-50">
+    <section id="gallery" className="relative py-24 bg-black/10">
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div ref={textRef} className="text-center mb-16">
@@ -93,7 +93,7 @@ const GallerySection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
           >
             Our Gallery
           </motion.h2>
@@ -103,7 +103,7 @@ const GallerySection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed"
+            className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed"
           >
             Take a visual journey through our restaurant, cuisine, and cultural events
           </motion.p>
@@ -124,7 +124,7 @@ const GallerySection: React.FC = () => {
               className={`px-6 py-2 rounded-full text-sm font-medium capitalize transition-all ${
                 filter === category 
                   ? 'bg-spice-600 text-white shadow' 
-                  : 'bg-cream-200 text-gray-700 hover:bg-spice-200'
+                  : 'bg-white/10 text-white hover:bg-spice-200'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -177,7 +177,7 @@ const GallerySection: React.FC = () => {
         <ScrollIndicator 
           targetSection="contact"
           text={translations.common.continue[language]}
-          theme="dark"
+          theme="light"
         />
 
         {/* Lightbox Modal */}
@@ -194,7 +194,7 @@ const GallerySection: React.FC = () => {
                 initial={{ scale: 0.8, y: 50 }}
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.8, y: 50 }}
-                className="relative max-w-4xl w-full bg-white rounded-lg overflow-hidden"
+                className="relative max-w-4xl w-full bg-white/10 backdrop-blur-md rounded-lg overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
               >
                 <button 
@@ -209,9 +209,9 @@ const GallerySection: React.FC = () => {
                   className="w-full max-h-[70vh] object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-2xl font-display mb-2">{selectedImage.title}</h3>
-                  <p className="text-gray-600">{selectedImage.description}</p>
-                  <span className="text-sm text-gray-500 mt-2 block capitalize">
+                  <h3 className="text-2xl font-display mb-2 text-white">{selectedImage.title}</h3>
+                  <p className="text-white/80">{selectedImage.description}</p>
+                  <span className="text-sm text-white/60 mt-2 block capitalize">
                     Category: {selectedImage.category}
                   </span>
                 </div>

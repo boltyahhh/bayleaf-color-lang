@@ -55,7 +55,7 @@ const MenuSection: React.FC = () => {
     : menuData.filter(item => item.category === activeCategory);
 
   return (
-    <section id="menu" className="relative py-24 bg-cream-50">
+    <section id="menu" className="relative py-24 bg-black/10">
       <div className="container mx-auto px-4 relative z-10">
         <div ref={textRef} className="text-center mb-16">
           <motion.div
@@ -76,7 +76,7 @@ const MenuSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
           >
             {translations.menu.title[language]}
           </motion.h2>
@@ -95,7 +95,7 @@ const MenuSection: React.FC = () => {
               className={`px-6 py-2 rounded-full text-sm font-medium capitalize transition-all ${
                 activeCategory === category
                   ? 'bg-spice-600 text-white shadow'
-                  : 'bg-cream-200 text-gray-700 hover:bg-spice-200'
+                  : 'bg-white/10 text-white hover:bg-spice-200'
               }`}
               onClick={() => setActiveCategory(category)}
               whileHover={{ scale: 1.05 }}
@@ -123,7 +123,7 @@ const MenuSection: React.FC = () => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 onClick={() => setSelectedItem(item)}
-                className="bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden shadow-md cursor-pointer hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="relative h-56 w-full overflow-hidden">
                   <img
@@ -144,19 +144,19 @@ const MenuSection: React.FC = () => {
                 </div>
                 <div className="p-5">
                   <div className="flex justify-between items-center mb-1">
-                    <h3 className="font-display text-lg font-semibold">{item.name}</h3>
-                    <span className="text-spice-600 font-medium">€{item.price.toFixed(2)}</span>
+                    <h3 className="font-display text-lg font-semibold text-white">{item.name}</h3>
+                    <span className="text-spice-400 font-medium">€{item.price.toFixed(2)}</span>
                   </div>
-                  <p className="text-gray-600 text-sm mb-2">{item.description}</p>
+                  <p className="text-white/80 text-sm mb-2">{item.description}</p>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs text-gray-500">
+                    <span className="text-xs text-white/60">
                       {translations.menu.labels.spiceLevel[language]}:
                     </span>
                     {[...Array(3)].map((_, i) => (
                       <span
                         key={i}
                         className={`w-3 h-3 rounded-full ${
-                          i < item.spiceLevel ? 'bg-chili-600' : 'bg-gray-300'
+                          i < item.spiceLevel ? 'bg-chili-600' : 'bg-white/20'
                         }`}
                       />
                     ))}
@@ -199,7 +199,7 @@ const MenuSection: React.FC = () => {
         <ScrollIndicator 
           targetSection="gallery"
           text={translations.common.continue[language]}
-          theme="dark"
+          theme="light"
         />
       </div>
 
@@ -213,7 +213,7 @@ const MenuSection: React.FC = () => {
             onClick={() => setSelectedItem(null)}
           >
             <motion.div
-              className="bg-white rounded-xl overflow-hidden max-w-2xl w-full"
+              className="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden max-w-2xl w-full"
               initial={{ scale: 0.9, y: 50 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 50 }}
@@ -225,10 +225,10 @@ const MenuSection: React.FC = () => {
                 className="w-full h-64 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-2xl font-display mb-2">{selectedItem.name}</h3>
-                <p className="text-gray-600 mb-4">{selectedItem.description}</p>
+                <h3 className="text-2xl font-display mb-2 text-white">{selectedItem.name}</h3>
+                <p className="text-white/80 mb-4">{selectedItem.description}</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-xl font-medium text-spice-600">
+                  <span className="text-xl font-medium text-spice-400">
                     €{selectedItem.price.toFixed(2)}
                   </span>
                   <button 

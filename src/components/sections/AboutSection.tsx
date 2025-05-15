@@ -32,7 +32,7 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="relative py-24 pb-32 overflow-hidden bg-gradient-to-b from-cream-50 to-cream-100">
+    <section id="about" className="relative py-24 pb-32 overflow-hidden bg-black/10">
       <div className="container mx-auto px-4 pr-6 box-border relative z-10 overflow-y-auto scrollbar-thin scrollbar-thumb-spice-400 scrollbar-track-cream-100">
         <div ref={textRef} className="text-center mb-16">
           <motion.div
@@ -53,7 +53,7 @@ const AboutSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
           >
             {translations.about.title[language]}
           </motion.h2>
@@ -63,7 +63,7 @@ const AboutSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed"
+            className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed"
           >
             {translations.about.description[language]}
           </motion.p>
@@ -77,13 +77,13 @@ const AboutSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="lg:pr-8"
           >
-            <h3 className="font-display text-2xl md:text-3xl mb-6 text-gray-900">
+            <h3 className="font-display text-2xl md:text-3xl mb-6 text-white">
               {translations.about.legacy.title[language]}
             </h3>
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <p className="text-white/80 mb-6 leading-relaxed">
               {translations.about.legacy.story[language]}
             </p>
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <p className="text-white/80 mb-6 leading-relaxed">
               {translations.about.legacy.continuation[language]}
             </p>
             
@@ -101,8 +101,8 @@ const AboutSection: React.FC = () => {
                     <span className="text-2xl font-bold">{stat.number}+</span>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900">{stat.label[language]}</h4>
-                    <p className="text-sm text-gray-500">{stat.subtext[language]}</p>
+                    <h4 className="font-medium text-white">{stat.label[language]}</h4>
+                    <p className="text-sm text-white/60">{stat.subtext[language]}</p>
                   </div>
                 </motion.div>
               ))}
@@ -135,15 +135,15 @@ const AboutSection: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.7 + index * 0.2 }}
                 whileHover={{ y: -10 }}
-                className={`bg-${feature.color}-50 p-8 rounded-lg shadow-md transform transition-all duration-300 hover:shadow-xl`}
+                className={`bg-${feature.color}-50/10 p-8 rounded-lg shadow-md transform transition-all duration-300 hover:shadow-xl backdrop-blur-sm`}
               >
                 <div className={`w-12 h-12 rounded-full bg-${feature.color}-500 text-white flex items-center justify-center mb-4`}>
                   <span className="font-bold text-xl">{index + 1}</span>
                 </div>
-                <h3 className="font-display text-xl mb-3 text-gray-900">
+                <h3 className="font-display text-xl mb-3 text-white">
                   {feature.title[language]}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-white/80">
                   {feature.description[language]}
                 </p>
               </motion.div>
@@ -155,7 +155,7 @@ const AboutSection: React.FC = () => {
       <ScrollIndicator 
         targetSection="menu"
         text={translations.about.cta[language]}
-        theme="dark"
+        theme="light"
       />
     </section>
   );
